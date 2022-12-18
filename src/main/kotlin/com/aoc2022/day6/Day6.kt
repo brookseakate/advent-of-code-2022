@@ -6,19 +6,19 @@ class Day6 {
   companion object {
     fun main() {
       println("hello Day 6")
-//      val signal = parseInput()
-//
-//      println(findMarkerIndex(signal))
-      println(findMarkerIndex("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
-      println("should be 7")
-      println(findMarkerIndex("bvwbjplbgvbhsrlpgdmjqwftvncz"))
-      println("should be 5")
-      println(findMarkerIndex("nppdvjthqldpwncqszvftbrmjlhg"))
-      println("should be 6")
-      println(findMarkerIndex("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
-      println("should be 10")
-      println(findMarkerIndex("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
-      println("should be 11")
+      val signal = parseInput()
+
+      println(findMarkerIndex(signal))
+//      println(findMarkerIndex("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
+//      println("should be 7")
+//      println(findMarkerIndex("bvwbjplbgvbhsrlpgdmjqwftvncz"))
+//      println("should be 5")
+//      println(findMarkerIndex("nppdvjthqldpwncqszvftbrmjlhg"))
+//      println("should be 6")
+//      println(findMarkerIndex("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
+//      println("should be 10")
+//      println(findMarkerIndex("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
+//      println("should be 11")
     }
 
     private fun parseInput(): String {
