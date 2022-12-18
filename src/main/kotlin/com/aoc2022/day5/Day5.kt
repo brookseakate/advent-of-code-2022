@@ -17,7 +17,7 @@ class Day5 {
       println("hello Day 5")
 
       parseInput()
-      rearrange()
+      rearrange9001()
       println(getTops().joinToString(""))
     }
 
@@ -75,7 +75,7 @@ class Day5 {
         }
     }
 
-    private fun rearrange() {
+    private fun rearrange9000() {
       for (move in moves) {
         for (i in 0 until move.quantity) {
           val crate = stacks[move.from]!!.removeLast()
@@ -86,6 +86,19 @@ class Day5 {
 
     private fun getTops(): List<String> {
       return stacks.map { it.value.last() }.toList()
+    }
+
+    private fun rearrange9001() {
+      for (move in moves) {
+//        val (remainingFromStack, moveStack) = stacks[move.from]!!.subList()
+//          .withIndex()
+//          .partition { it.index < stacks[move.from] }
+        val reverseMoveStack = mutableListOf<String>()
+        for (i in stacks[move.from]!!.size - 1 downTo stacks[move.from]!!.size - move.quantity) {
+          reverseMoveStack.add(stacks[move.from]!!.removeAt(i))
+        }
+        stacks[move.to]!!.addAll(reverseMoveStack.reversed())
+      }
     }
   }
 }
