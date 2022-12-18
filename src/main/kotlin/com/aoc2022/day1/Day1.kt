@@ -8,6 +8,7 @@ class Day1 {
       println("hello Day 1")
 
       println(findMaxCalories())
+      println(findTopNCalories(3).sum())
     }
 
     private fun findMaxCalories(): Int {
@@ -30,6 +31,34 @@ class Day1 {
       }
 
       return maxCals
+    }
+
+    private fun findTopNCalories(n: Int): List<Int> {
+      val lines = readFileAsMutableList("day1/Input")
+
+      var maxCalList = MutableList(size = n, init = { 0 } )
+      var currentCals = 0
+
+      for (line in lines) {
+        if (line.isNotEmpty()) {
+          currentCals += line.toInt()
+          continue
+        }
+
+        if (currentCals > maxCalList.first()) {
+          val tempList = maxCalList.plus(currentCals)
+          maxCalList = tempList.sorted().subList(1, n + 1).toMutableList()
+        }
+
+        currentCals = 0
+      }
+
+      if (currentCals > maxCalList.first()) {
+        val tempList = maxCalList.plus(currentCals)
+        maxCalList = tempList.sorted().subList(1, n + 1).toMutableList()
+      }
+
+      return maxCalList
     }
   }
 }
