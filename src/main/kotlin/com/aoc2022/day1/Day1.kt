@@ -1,6 +1,6 @@
 package main.kotlin.com.aoc2022.day1
 
-import main.kotlin.com.aoc2022.util.Utils.Companion.readFileAsStream
+import main.kotlin.com.aoc2022.util.Utils.Companion.readFileAsMutableList
 
 class Day1 {
   companion object {
@@ -11,12 +11,12 @@ class Day1 {
     }
 
     private fun findMaxCalories(): Int {
-      val lineStream = readFileAsStream("day1/Input")
+      val lines = readFileAsMutableList("day1/Input")
 
       var maxCals = 0
       var currentCals = 0
 
-      for (line in lineStream) {
+      for (line in lines) {
         if (line.isNotEmpty()) {
           currentCals += line.toInt()
           continue
