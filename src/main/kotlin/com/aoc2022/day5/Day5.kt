@@ -90,14 +90,12 @@ class Day5 {
 
     private fun rearrange9001() {
       for (move in moves) {
-//        val (remainingFromStack, moveStack) = stacks[move.from]!!.subList()
-//          .withIndex()
-//          .partition { it.index < stacks[move.from] }
-        val reverseMoveStack = mutableListOf<String>()
-        for (i in stacks[move.from]!!.size - 1 downTo stacks[move.from]!!.size - move.quantity) {
-          reverseMoveStack.add(stacks[move.from]!!.removeAt(i))
-        }
-        stacks[move.to]!!.addAll(reverseMoveStack.reversed())
+        val (remainingFromStack, moveStack) = stacks[move.from]!!
+          .withIndex()
+          .partition { it.index < stacks[move.from]!!.size - move.quantity }
+
+        stacks[move.from] = remainingFromStack.map { it.value }.toMutableList()
+        stacks[move.to]!!.addAll(moveStack.map { it.value })
       }
     }
   }
