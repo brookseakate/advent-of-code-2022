@@ -8,7 +8,6 @@ class Day6 {
       println("hello Day 6")
       val signal = parseInput()
 
-      println(findMarkerIndex(signal))
 //      println(findMarkerIndex("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
 //      println("should be 7")
 //      println(findMarkerIndex("bvwbjplbgvbhsrlpgdmjqwftvncz"))
@@ -19,18 +18,21 @@ class Day6 {
 //      println("should be 10")
 //      println(findMarkerIndex("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
 //      println("should be 11")
-      println(findMessageIndex(signal))
-      println(findMessageIndex("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
-      println("should be 19")
-      println(findMessageIndex("bvwbjplbgvbhsrlpgdmjqwftvncz"))
-      println("should be 23")
-      println(findMessageIndex("nppdvjthqldpwncqszvftbrmjlhg"))
-      println("should be 23")
-      println(findMessageIndex("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
-      println("should be 29")
-      println(findMessageIndex("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
-      println("should be 26")
 
+      println(findMarkerIndex(signal))
+
+//      println(findMessageIndex("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
+//      println("should be 19")
+//      println(findMessageIndex("bvwbjplbgvbhsrlpgdmjqwftvncz"))
+//      println("should be 23")
+//      println(findMessageIndex("nppdvjthqldpwncqszvftbrmjlhg"))
+//      println("should be 23")
+//      println(findMessageIndex("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
+//      println("should be 29")
+//      println(findMessageIndex("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
+//      println("should be 26")
+
+      println(findMessageIndex(signal))
     }
 
     private fun parseInput(): String {
