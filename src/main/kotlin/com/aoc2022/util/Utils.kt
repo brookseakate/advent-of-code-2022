@@ -2,6 +2,7 @@ package main.kotlin.com.aoc2022.util
 
 import java.nio.file.Files
 import java.nio.file.Paths
+import java.util.stream.Stream
 
 class Utils {
   companion object {
@@ -11,6 +12,13 @@ class Utils {
           Paths.get("./src/main/kotlin/com/aoc2022/$relFilePath")
         )
         .toMutableList()
+    }
+
+    fun readFileAsStream(relFilePath: String): Stream<String> {
+      return Files
+        .lines(
+          Paths.get("./src/main/kotlin/com/aoc2022/$relFilePath")
+        )
     }
   }
 }
