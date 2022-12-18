@@ -64,8 +64,8 @@ class Day5 {
       // parse the instructions
       moves = instructionLines
         .map { line ->
-          val digits = line.split("").filter {
-            it.matches(Regex("\\d"))
+          val digits = line.split(" ").filter {
+            it.matches(Regex("\\d+"))
           }
           MoveInstruction(
             quantity = digits[0].toInt(),
