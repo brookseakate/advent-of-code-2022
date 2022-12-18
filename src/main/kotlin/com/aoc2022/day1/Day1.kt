@@ -36,7 +36,7 @@ class Day1 {
     private fun findTopNCalories(n: Int): List<Int> {
       val lines = readFileAsMutableList("day1/Input")
 
-      var maxCalList = MutableList(size = n, init = { 0 } )
+      var maxCalList = MutableList(size = n, init = { 0 })
       var currentCals = 0
 
       for (line in lines) {
@@ -45,20 +45,34 @@ class Day1 {
           continue
         }
 
-        if (currentCals > maxCalList.first()) {
-          val tempList = maxCalList.plus(currentCals)
-          maxCalList = tempList.sorted().subList(1, n + 1).toMutableList()
-        }
+        maxCalList = updateMaxList(
+          currentCals = currentCals,
+          maxCalList = maxCalList,
+          n = n,
+        )
 
         currentCals = 0
       }
 
-      if (currentCals > maxCalList.first()) {
-        val tempList = maxCalList.plus(currentCals)
-        maxCalList = tempList.sorted().subList(1, n + 1).toMutableList()
-      }
+      // Consider last line too
+      return updateMaxList(
+        currentCals = currentCals,
+        maxCalList = maxCalList,
+        n = n,
+      )
+    }
 
-      return maxCalList
+    private fun updateMaxList(
+      currentCals: Int,
+      maxCalList: MutableList<Int>,
+      n: Int,
+    ): MutableList<Int> {
+      return if (currentCals > maxCalList.first()) {
+        val tempList = maxCalList.plus(currentCals)
+        tempList.sorted().subList(1, n + 1).toMutableList()
+      } else {
+        maxCalList
+      }
     }
   }
 }
