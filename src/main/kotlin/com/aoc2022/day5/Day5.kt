@@ -17,10 +17,12 @@ class Day5 {
       println("hello Day 5")
 
       parseInput()
+      rearrange()
+      println(getTops().joinToString(""))
     }
 
     private fun parseInput() {
-      val inputLines = readFileAsMutableList("day5/SampleInput")
+      val inputLines = readFileAsMutableList("day5/Input")
 
       // partition the input
       val stackIdRowIndex = inputLines
@@ -55,7 +57,7 @@ class Day5 {
             .filterNot { it == " " }
             .toMutableList()
 
-          stacks[char.value.code] = crateStack
+          stacks[char.value.toString().toInt()] = crateStack
         }
       }
 
@@ -71,16 +73,19 @@ class Day5 {
             to = digits[2].toInt(),
           )
         }
-      // TODO: remove
-//      for (inputLine in inputLines) {
-//        while (inputLine[0] != 'm') {
-//          // TODO: add validations on expectations for characters in stack diagram
-//          for (char in inputLine) {
-//
-//          }
-//
-//        }
-//      }
+    }
+
+    private fun rearrange() {
+      for (move in moves) {
+        for (i in 0 until move.quantity) {
+          val crate = stacks[move.from]!!.removeLast()
+          stacks[move.to]!!.add(crate)
+        }
+      }
+    }
+
+    private fun getTops(): List<String> {
+      return stacks.map { it.value.last() }.toList()
     }
   }
 }
