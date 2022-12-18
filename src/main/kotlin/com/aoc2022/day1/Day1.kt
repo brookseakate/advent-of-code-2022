@@ -1,4 +1,4 @@
-package com.aoc2022.day1
+package main.kotlin.com.aoc2022.day1
 
 class Day1 {
   companion object {
