@@ -1,4 +1,4 @@
-package com.aoc2022.util
+package main.kotlin.com.aoc2022.util
 
 import java.nio.file.Files
 import java.nio.file.Paths

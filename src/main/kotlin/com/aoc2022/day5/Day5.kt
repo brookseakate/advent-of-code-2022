@@ -1,6 +1,6 @@
 package main.kotlin.com.aoc2022.day5
 
-import com.aoc2022.util.Utils.Companion.readFileAsMutableList
+import main.kotlin.com.aoc2022.util.Utils.Companion.readFileAsMutableList
 
 data class MoveInstruction(
   val quantity: Int,

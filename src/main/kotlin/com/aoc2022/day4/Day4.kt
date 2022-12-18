@@ -1,6 +1,6 @@
 package main.kotlin.com.aoc2022.day4
 
-import com.aoc2022.util.Utils.Companion.readFileAsMutableList
+import main.kotlin.com.aoc2022.util.Utils.Companion.readFileAsMutableList
 
 class Day4 {
   companion object {
@@ -11,6 +11,7 @@ class Day4 {
 
       parseInput()
       println(findFullyContainingPairs().size)
+      println(findOverlappingPairs().size)
     }
 
     private fun parseInput() {
@@ -35,6 +36,12 @@ class Day4 {
       return assignments.filter {
         it.first.first() >= it.second.first() && it.first.last() <= it.second.last() ||
           it.first.first() <= it.second.first() && it.first.last() >= it.second.last()
+      }
+    }
+
+    private fun findOverlappingPairs(): List<Pair<List<Int>, List<Int>>> {
+      return assignments.filter {
+        it.first.intersect(it.second.toSet()).isNotEmpty()
       }
     }
   }
